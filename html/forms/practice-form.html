@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice form</title>
+  </head>
+  <body>
+    <form name="practice" action="success.html" method="post">
+      <fieldset>
+      <div>
+        <label>Select your favorite computer type:</label>
+        <select name="compType">
+          <option label="mac">Mac</option>
+          <option label="pc">PC</option>
+          <option label="linux">Linux</option>
+        </select>
+      </div>
+      <div>
+        <label>Why do you like that type?</label>
+        <textarea rows="2" cols="20"></textarea>
+      </div>
+      <div>
+        <label>Is this your final answer?</label>
+        <input type="checkbox" name="cb-finalY" value="yes">
+        Yes
+        <input type="checkbox" name="cb-finalN" value="no">
+        No
+      </div>
+    </fieldset>
+    <fieldset>
+      <div>
+        <label>When did you answer this?</label>
+        <input type="date" name="dateAnswered">
+      </div>
+      <div>
+        <label>Please enter your name:</label>
+        <input type="text" name="fullname">
+      </div>
+    </fieldset>
+    <button type="submit">Confirm your input</button>
+    </form>
+  </body>
+</html>

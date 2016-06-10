@@ -10,3 +10,17 @@
 ul.small-list {
   font-size: .8em;
 }
+
+/*
+Release 2
+1. Cascading means that while applying multiple css file to a single html file they will be able to create additive stylings to an element with in the html with conflict resolution between the styles.
+2.
+*/
+li:first-child {
+  background-color: hotpink;
+}
+
+/* 3. */
+ul > :first-child{
+  font-weight: bold;
+}

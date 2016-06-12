@@ -1,0 +1,21 @@
+#octo {
+  margin-left: 30%;
+  margin-top: 200px;
+  border-style: dashed;
+}
+
+#hat {
+  float: left;
+  position: absolute;
+  left: 28%;
+  top: 140px;
+  border-style: dashed;
+}
+
+#glasses {
+  float: left;
+  position: relative;
+  left: 38%;
+  top: 100px;
+  border-style: dashed;
+}

@@ -2,7 +2,6 @@
   position: absolute;
   width: 0px;
   margin-left: 50%;
-  border-style: dashed;
   margin-top: 50px
 }
 
@@ -11,7 +10,6 @@
 position: absolute;
   margin-left: -100px;
   top: 50px;
-  border-style: dashed;
 }
 
 #hat {
@@ -19,7 +17,6 @@ position: absolute;
   position: absolute;
   left: -130px;
 
-  border-style: dashed;
 }
 
 #glasses {
@@ -27,5 +24,4 @@ position: absolute;
   position: relative;
   left: -60px;
   top: 150px;
-  border-style: dashed;
 }

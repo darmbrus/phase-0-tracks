@@ -1,0 +1,27 @@
+#container {
+  position: absolute;
+  width: 0px;
+  margin-left: 50%;
+  margin-top: 50px
+}
+
+
+#octo {
+position: absolute;
+  margin-left: -100px;
+  top: 50px;
+}
+
+#hat {
+  float: left;
+  position: absolute;
+  left: -130px;
+
+}
+
+#glasses {
+  float: left;
+  position: relative;
+  left: -60px;
+  top: 150px;
+}

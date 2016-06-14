@@ -1,0 +1,21 @@
+1. For each wall in the elevator
+    search for the buttons with numbers
+    Once found stop searching
+2. Prompt user for which floor they would like.
+3. For each button
+    look for the user requested button.
+    once found, stop searching but remember where it was
+4. press the floor button corresponding to the user input.
+
+Common Task:
+Boarding a Plane
+1. Prompt user for seat assignment and number of overhead bags.
+2. If not at the first seat of the plane
+    reset position to starting position
+3. if current row does not equal inputted row then move forward
+    if it does stop and remember the index.
+4. for each carry on bag
+    if space above seat for bags is open, place bag
+    else, move down 1 row and add one to count away from seat row
+5. move back number of rows moved away from seat row
+6. take seat.

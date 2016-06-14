@@ -1,0 +1,8 @@
+1. For each wall in the elevator
+    search for the buttons with numbers
+    Once found stop searching
+2. Prompt user for which floor they would like.
+3. For each button
+    look for the user requested button.
+    once found, stop searching but remember where it was
+4. press the floor button corresponding to the user input.

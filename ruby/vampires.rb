@@ -7,15 +7,15 @@ def ageCheck(age, year)
   check
 end
 
-print "What is your name? "
+# print "What is your name? "
 name = gets
-print "How old are you? "
+# print "How old are you? "
 age = gets.to_i
-print "What year were you born? "
+# print "What year were you born? "
 birthYear = gets.to_i
-print "Our company serves galic bread. Should we order some for you ?"
+# print "Our company serves galic bread. Should we order some for you ?"
 garlicBreadChoice = gets
-print "Would you like to enroll in the company's health insurance? "
+# print "Would you like to enroll in the company's health insurance? "
 healthInsuranceChoice = gets
 
 vampire_result = "Results inconclusive"

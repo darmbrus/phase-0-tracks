@@ -6,6 +6,7 @@ def ageCheck(age, year)
   end
   check
 end
+
 print "What is your name? "
 name = gets
 print "How old are you? "
@@ -16,3 +17,13 @@ print "Our company serves galic bread. Should we order some for you ?"
 garlicBreadChoice = gets
 print "Would you like to enroll in the company's health insurance? "
 healthInsuranceChoice = gets
+
+vampire_result = "Results inconclusive"
+
+if (ageCheck(age, birthYear) && garlicBreadChoice == "yes")
+  vampire_result = "Probably not a vampire"
+  puts "passed"
+end
+
+
+puts vampire_result

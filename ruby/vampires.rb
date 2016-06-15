@@ -7,16 +7,16 @@ def ageCheck(age, year)
   check
 end
 
-loop do
-  # print "What is your name? "
+
+  print "What is your name? "
   name = gets.chomp!
-  # print "How old are you? "
+  print "How old are you? "
   age = gets.to_i
-  # print "What year were you born? "
+  print "What year were you born? "
   birthYear = gets.to_i
-  # print "Our company serves galic bread. Should we order some for you ?"
+  print "Our company serves galic bread. Should we order some for you ?"
   garlicBreadChoice = gets.chomp!
-  # print "Would you like to enroll in the company's health insurance? "
+  print "Would you like to enroll in the company's health insurance? "
   healthInsuranceChoice = gets.chomp!
 
   sunshine_allergy = false
@@ -24,7 +24,7 @@ loop do
   vampire_result = "Results inconclusive"
 
   # Allergies check
-  # puts "Please enter allergies one at a time:"
+  puts "Please enter allergies one at a time:"
   while (!sunshine_allergy && current_allergy != "done") do
     current_allergy = gets.chomp!
     # puts current_allergy
@@ -65,6 +65,3 @@ loop do
   puts vampire_result
 
   puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends"
-
-  break if (name == "end")
-end

@@ -64,5 +64,7 @@ loop do
   # Otherwise, print “Results inconclusive.”
   puts vampire_result
 
+  puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends"
+
   break if (name == "end")
 end

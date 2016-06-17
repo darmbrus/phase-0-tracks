@@ -1,3 +1,39 @@
 body {
+  font-family: "Helvetica", sans-serif;
+  max-width: 960px;
+  margin: 0px auto;
+}
+
+header {
+  background: url('http://placekitten.com/500/300');
+  color: white;
+  text-align: center;
+  width: 90%;
+  padding: 10px;
+}
+
+section {
+  display: inline-block;
+}
+
+section.column-1 {
+  background-color: orange;
+  width: 45%;
+  height: auto;
+  padding: 5px;
+  margin: 0;
+}
+
+section.column-2 {
+  background-color: yellow;
+  width: 45%;
+  height: auto;
+  padding: 5px;
+  margin: 0;
+  vertical-align: top;
+}
+
+footer {
   background-color: green;
+  width: 90%;
 }

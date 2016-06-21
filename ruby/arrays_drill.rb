@@ -1,3 +1,11 @@
+def build_array(a,b,c)
+  out = [a,b,c]
+end
+
+def add_to_array(a,b)
+  a << b
+end
+
 ary = []
 p ary
 ary << "obj1"
@@ -18,3 +26,9 @@ p "Is obj5 included in the array?: #{ary.include?("obj5")}"
 ary2 = ["test1","test2","test3","test4","test5","test6"]
 combine  = ary + ary2
 p combine
+
+
+ary3 = build_array("d","f","g")
+p ary3
+add_to_array(ary3, "t")
+p ary3

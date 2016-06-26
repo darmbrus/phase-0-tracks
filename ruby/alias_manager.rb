@@ -37,7 +37,7 @@ def nextLetter(full_name)
   split_letters = full_name.split('')
   split_letters.map! { |letter|
     if letter != " "
-      if vowels.index(letter) != nil
+      if vowels.index(letter.downcase) != nil
         letter = nextVowel(letter)
       else
         letter = nextConsonant(letter)
@@ -92,6 +92,6 @@ while new_name != "done"
   new_name = gets.chomp
   if new_name != "done"
     new_alias = nextLetter(swapName(new_name))
-    puts "Name: #{new_name} Alias: #{new_alias}"  
+    puts "Name: #{new_name} Alias: #{new_alias}"
   end
 end

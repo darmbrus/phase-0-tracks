@@ -10,8 +10,17 @@
 # else replace it withe the next letter
 
 def swapLetters(full_name)
-  full_name
+  split_name = full_name.split(' ')
+  split_first_name = split_name[0].split('')
+  split_last_name = split_name[1].split('')
+
+  temp = split_last_name[0]
+  split_last_name[0] = split_first_name[0]
+  split_first_name[0] = temp
+
+  full_name = split_first_name.join('') + ' ' + split_last_name.join('')
 end
 
 
-puts swapLetters("david Test")
+name_test = swapLetters("david Test")
+p name_test

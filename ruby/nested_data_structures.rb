@@ -1,4 +1,17 @@
+def printProjectNames(a)
+  a.each { |b|
+    puts b[:name]
+  }
+end
 
+def printProjectsWithTasks(a)
+  a.each {|b|
+    puts b[:name]
+    b[:tasks].each { |c|
+      puts "  " + c
+    }
+  }
+end
 
 projects = [
   {
@@ -11,7 +24,7 @@ projects = [
     tasks: [
       'Schedule pair',
       'Meet with pair',
-      'Submit assignment',
+      'Submit assignment'
     ],
     pct_complete: 50
   } ,
@@ -46,4 +59,8 @@ projects = [
   }
 ]
 
-puts projects[0][:name]
+puts projects[2][:pct_complete]
+puts projects[1][:date_due][:day]
+
+printProjectNames(projects)
+printProjectsWithTasks(projects)

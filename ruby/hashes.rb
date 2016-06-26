@@ -54,12 +54,14 @@ update_field = gets.chomp
 if update_field != "done"
   puts "Please enter the value you would like to update it to: "
   update_value = gets.chomp
-  # need to check all possible values of update_field and convert to the correct type
-  if update_field == "name" || update_field == "decor_theme" || update_field == "favorite_color"
+  # Check all allowed values of update_field and convert to the correct type
+  if update_field == "name" ||
+     update_field == "decor_theme" ||
+     update_field == "favorite_color"
     client[update_field.to_sym] = update_value
   elsif update_field == "number_of_children" ||
-      update_field == "number_of_rooms" ||
-      update_field == "age"
+        update_field == "number_of_rooms" ||
+        update_field == "age"
     client[update_field.to_sym] = update_value.to_i
   elsif update_field == "adventurous"
     if update_value == "true"

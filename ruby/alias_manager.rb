@@ -35,7 +35,7 @@ def swapName(full_name)
   full_name = split_name.join(' ')
 end
 
-
+# nextLetter will return the next consonant or vowel with in a string and return
 def nextLetter(full_name)
   vowels = 'aeiou'
   split_letters = full_name.split('')
@@ -90,6 +90,7 @@ end
 user_input = []
 new_name = ""
 new_alias = ""
+agent_list = []
 
 while new_name != "done"
   puts "Please enter a new name be aliased and stored"
@@ -97,5 +98,12 @@ while new_name != "done"
   if new_name != "done"
     new_alias = nextLetter(swapName(new_name))
     puts "Name: #{new_name} Alias: #{new_alias}"
+    agent_list.push({name: new_name, alias: new_alias})
   end
 end
+
+puts "Agent Name \t| Alias"
+puts "---------------------------"
+agent_list.each { |agent|
+  puts "#{agent[:name]} \t| #{agent[:alias]}"
+  }

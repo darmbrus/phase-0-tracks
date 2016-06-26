@@ -24,6 +24,9 @@
 #   full_name = split_first_name.join('') + ' ' + split_last_name.join('')
 # end
 
+
+# swapName will swap the first and second words of a string when they are
+# separated by a space and return. All other words in the string will be left
 def swapName(full_name)
   split_name = full_name.split(' ')
   temp = split_name[1]
@@ -31,6 +34,7 @@ def swapName(full_name)
   split_name[0] = temp
   full_name = split_name.join(' ')
 end
+
 
 def nextLetter(full_name)
   vowels = 'aeiou'

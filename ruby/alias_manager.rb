@@ -83,7 +83,15 @@ def nextConsonant(letter)
   end
 end
 
-test_name = "Felicia Torres"
+user_input = []
+new_name = ""
+new_alias = ""
 
-name_out = nextLetter(swapName(test_name))
-puts name_out
+while new_name != "done"
+  puts "Please enter a new name be aliased and stored"
+  new_name = gets.chomp
+  if new_name != "done"
+    new_alias = nextLetter(swapName(new_name))
+    puts "Name: #{new_name} Alias: #{new_alias}"  
+  end
+end

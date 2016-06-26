@@ -46,3 +46,11 @@ else
   client[:adventurous] = false
 end
 puts client
+puts "Would you like to update any of the fields: "
+update = gets.chomp
+if update != "done"
+  update.prepend(":")
+  puts "Please enter the value you would like to update it to: "
+  
+  # need to check all possible values of update and convert to the correct type
+end

@@ -61,6 +61,25 @@ projects = [
 
 puts projects[2][:pct_complete]
 puts projects[1][:date_due][:day]
-
 printProjectNames(projects)
 printProjectsWithTasks(projects)
+
+# Output:
+# 0
+# 24
+# Manditory Pairing: Arrays
+# Symbols and Hashes
+# Solo Challenge
+# Manditory Pairing: Arrays
+#   Schedule pair
+#   Meet with pair
+#   Submit assignment
+# Symbols and Hashes
+#   Release 0
+#   Release 1
+#   Release 2
+#   Release 3
+# Solo Challenge
+#   Psudocode out the challenge
+#   Break out logical methods
+#   Test solutions

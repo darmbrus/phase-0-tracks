@@ -43,6 +43,7 @@ def new_list(items)
   split_items.each { |item|
     list[item] = 1
   }
+  print_list(list)
   list
 end
 
@@ -65,26 +66,22 @@ def update_qty(list, item, quantity)
 end
 
 def print_list(list)
-
   puts "Current List:"
-  list.each { |item, quantity|
-    puts "#{item}\t#{quantity}"
-
-  }
-
+  if list.length != 0
+    list.each { |item, quantity|
+      puts "#{item}\t#{quantity}"
+    }
+  else
+    puts "BLANK"
+  end
 end
 
 
-list =  new_list("carrots apples cereal pizza")
-p list
-list = add_item(list, "orange", 2)
-p list
-list = add_item(list, "banana")
-p list
-list = remove_item(list, "banana")
-p list
-list = update_qty(list, "orange", 3)
-p list
-list = update_qty(list, "candy", 5)
-p list
-print_list(list)
+testList = new_list("")
+testList = add_item(testList, "Lemonade", 2)
+testList = add_item(testList, "Tomatoes", 3)
+testList = add_item(testList, "Onions", 1)
+testList = add_item(testList, "Ice Cream", 4)
+testList = remove_item(testList, "Lemonade")
+testList = update_qty(testList, "Ice Cream", 1)
+print_list(testList)

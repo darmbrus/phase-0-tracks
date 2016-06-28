@@ -39,7 +39,6 @@
 
 def new_list(items)
   list = {}
-
   split_items = items.split(' ')
   split_items.each { |item|
     list[item] = 1
@@ -47,7 +46,45 @@ def new_list(items)
   list
 end
 
+def add_item(list, item, quantity = 1)
+  list[item] = quantity
+  list
+end
+
+def remove_item(list, item)
+  list.delete(item)
+  list
+end
+
+def update_qty(list, item, quantity)
+
+  if list[item] != nil
+    list[item] = quantity
+  end
+  list
+end
+
+def print_list(list)
+
+  puts "Current List:"
+  list.each { |item, quantity|
+    puts "#{item}\t#{quantity}"
+
+  }
+
+end
 
 
-
-p new_list("carrots apples cereal pizza")
+list =  new_list("carrots apples cereal pizza")
+p list
+list = add_item(list, "orange", 2)
+p list
+list = add_item(list, "banana")
+p list
+list = remove_item(list, "banana")
+p list
+list = update_qty(list, "orange", 3)
+p list
+list = update_qty(list, "candy", 5)
+p list
+print_list(list)

@@ -1,7 +1,6 @@
 #pgs2_2
 
 # Method to create a list
-
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps:
 # split up the string
@@ -36,3 +35,19 @@
 # input: list of items
 # steps: get the data from user, Go through the methods
 # output: the list
+
+
+def new_list(items)
+  list = {}
+
+  split_items = items.split(' ')
+  split_items.each { |item|
+    list[item] = 1
+  }
+  list
+end
+
+
+
+
+p new_list("carrots apples cereal pizza")

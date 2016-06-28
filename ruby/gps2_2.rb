@@ -31,7 +31,7 @@
 # steps: create a loop to ask for more inputs
 # output: call the list_method to print the list
 
-# Method to print a list and make it look pretty
+# Method to print a list and ake it look pretty
 # input: list of items
 # steps: get the data from user, Go through the methods
 # output: the list
@@ -58,7 +58,6 @@ def remove_item(list, item)
 end
 
 def update_qty(list, item, quantity)
-
   if list[item] != nil
     list[item] = quantity
   end
@@ -85,3 +84,23 @@ testList = add_item(testList, "Ice Cream", 4)
 testList = remove_item(testList, "Lemonade")
 testList = update_qty(testList, "Ice Cream", 1)
 print_list(testList)
+
+
+=begin
+What did you learn about pseudocode from working on this challenge?
+  pseudocode can be structured to the flow of a program
+What are the tradeoffs of using arrays and hashes for this challenge?
+  Hashes allow you to store the quantity with the item name and allows for easy
+  searching through the list for changes in quantity. An array would not hold
+  the values in the same place and would require extra work to link them together.
+What does a method return?
+  A method retruns the last value that evaluates. This is the implicit return
+What kind of things can you pass into methods as arguments?
+  You can pass anything from variables, to blocks of code, to other methods.
+How can you pass information between methods?
+  You can call a method inside of another method or you can call method on the
+  return of another method
+What concepts were solidified in this challenge, and what concepts are still confusing?
+  I believe this exercise solidified my comfort with pseudocode. I believe I
+  could still work on using hashes.
+=end

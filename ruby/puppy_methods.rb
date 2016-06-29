@@ -39,3 +39,25 @@
 # age = spot.dog_years(4)
 # puts age
 # spot.shake_hands()
+
+class Computer
+
+  def initialize()
+    turn_on()
+  end
+
+  def turn_on()
+    puts "booting up!"
+  end
+
+  def insert_disk(disk)
+    if (disk == "game")
+      disk_loading = true
+    else
+      disk_loading = false
+    end
+  end
+end
+
+
+com64 = Computer.new

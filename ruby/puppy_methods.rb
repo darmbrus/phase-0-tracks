@@ -43,7 +43,7 @@
 class Computer
 
   def initialize()
-    turn_on()
+    puts "New Computer generated"
   end
 
   def turn_on()
@@ -59,5 +59,23 @@ class Computer
   end
 end
 
+# com64 = Computer.new
+#
+# if com64.insert_disk("game")
+#   puts "let play!!"
+# else
+#   puts "This isnt a game!"
+# end
 
-com64 = Computer.new
+
+times_to_run = 50
+cluster = []
+times_to_run.times {
+  cluster << Computer.new
+}
+
+puts "-------------------------"
+
+cluster.each {|comp|
+  comp.turn_on()
+}

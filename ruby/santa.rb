@@ -23,8 +23,8 @@ class Santa
     end
 
     def get_mad_at(nemesis_name)
-        @reindeer_ranking.delete(nemesis_name) << nemesis_name
-    
+        @reindeer_ranking.delete(nemesis_name) 
+        @reindeer_ranking << nemesis_name
     end
 
     def get_ethnicity()
@@ -34,13 +34,27 @@ class Santa
     def set_gender(new_gender)
         @gender = new_gender
     end
+
+    def print_reindeer_ranking()
+        count = 1
+        puts "--- Reindeer Ranking ---"
+        @reindeer_ranking.each {|reindeer|
+            puts "#{count} #{reindeer}"
+            count += 1
+        }
+
+    
+    end
 end
 
 
 
+chris = Santa.new("male", "Latin")
 
-santas = []
-santas << Santa.new("agender", "black")
-santas << Santa.new("female", "Latino")
+puts chris.get_ethnicity
+chris.print_reindeer_ranking()
+chris.get_mad_at("Rudolph")
+
+chris.print_reindeer_ranking()
 
 

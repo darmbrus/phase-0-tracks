@@ -1,4 +1,8 @@
 class Santa
+    attr_accessor :gender
+    attr_reader :ethnicity
+    attr_reader :age
+ 
     def initialize(gender, ethnicity)
         puts "Initializing Santa instance..."
         @gender = gender
@@ -27,14 +31,6 @@ class Santa
         @reindeer_ranking << nemesis_name
     end
 
-    def get_ethnicity()
-        @ethnicity
-    end
-
-    def set_gender(new_gender)
-        @gender = new_gender
-    end
-
     def print_reindeer_ranking()
         count = 1
         puts "--- Reindeer Ranking ---"
@@ -42,19 +38,10 @@ class Santa
             puts "#{count} #{reindeer}"
             count += 1
         }
-
-    
     end
 end
 
-
-
-chris = Santa.new("male", "Latin")
-
-puts chris.get_ethnicity
-chris.print_reindeer_ranking()
-chris.get_mad_at("Rudolph")
-
-chris.print_reindeer_ranking()
-
+number_of_santas = 50
+santas = []
+number_of_santas.times { santas << Santa.new(rand(), rand())    }
 

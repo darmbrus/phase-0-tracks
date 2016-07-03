@@ -26,6 +26,27 @@ class Santa
         @age += 1
     end
 
+    # Getters and setters before refactor
+#    def gender
+#        @gender
+#    end
+#
+#    def ethnicity
+#        @ethnicity
+#    end
+#
+#    def age
+#        @age
+#    end
+#
+#    def gender=(value)
+#        @gender = value
+#    end
+#
+#    def age=(value)
+#        @age = value
+#    end
+
     #Method to move a reindeer to the end of the ranking list
     def get_mad_at(nemesis_name)
         @reindeer_ranking.delete(nemesis_name) 

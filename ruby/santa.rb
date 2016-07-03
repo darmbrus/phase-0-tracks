@@ -1,7 +1,7 @@
 class Santa
     attr_accessor :gender
     attr_reader :ethnicity
-    attr_reader :age
+    attr_accessor :age
  
     def initialize(gender, ethnicity)
         puts "Initializing Santa instance..."
@@ -39,9 +39,34 @@ class Santa
             count += 1
         }
     end
+
+    def print_details()
+        puts "--- Santa Details ---"
+        puts "Gender: #{@gender}"
+        puts "Ethnicity: #{@ethnicity}"
+        puts "Age: #{@age}"
+    end
 end
 
-number_of_santas = 50
+example_genders = ["agender", "female", "bigender",
+    "male", "female", "gender fluid",
+    "N/A"]
+example_ethnicities = ["black", "Latino", "white",
+    "Japanese-African", "prefer not to say",
+    "Mystical Creature (unicorn)", "N/A"]
+number_of_santas = 200
 santas = []
-number_of_santas.times { santas << Santa.new(rand(), rand())    }
+#Create santas and place them in an array
+number_of_santas.times {
+    santas << Santa.new(example_genders.sample, example_ethnicities.sample)
+}
+#Set the age of each santa randomly between 0-140 years old
+santas.each { |santa|
+    santa.age = (rand()*140).to_int
+}
 
+
+#Prints out each of the santa's details
+santas.each { |santa|
+    santa.print_details()
+}

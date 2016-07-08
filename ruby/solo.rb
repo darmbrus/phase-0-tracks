@@ -56,7 +56,6 @@ class ProjectTask
     print "  Start Date:  #{@date_start.month}/"
     print "#{@date_start.day}/"
     puts "#{@date_start.year}"
-    
     print "  End Date:    #{@date_end.month}/"
     print "#{@date_end.day}/"
     puts "#{@date_end.year}"

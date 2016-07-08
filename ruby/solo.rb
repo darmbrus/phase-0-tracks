@@ -48,8 +48,23 @@ class ProjectTask
       @priority
     end
   end
+
+  def print_task()
+    puts @task_name
+    puts "  Assigned to: #{@assigned_to}"
+    puts "  Priority:    #{@priority}"
+    print "  Start Date:  #{@date_start.month}/"
+    print "#{@date_start.day}/"
+    puts "#{@date_start.year}"
+    
+    print "  End Date:    #{@date_end.month}/"
+    print "#{@date_end.day}/"
+    puts "#{@date_end.year}"
+  end
+
 end
 
 
 task = ProjectTask.new("7/7/2016", "7/20/2016", "3", "homework", "David")
 task.get_duration
+task.print_task

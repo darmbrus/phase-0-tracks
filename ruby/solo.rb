@@ -11,6 +11,11 @@
 require 'date'
 
 class ProjectTask
+  attr_reader :date_start
+  attr_reader :date_end
+  attr_reader :priority
+  attr_accessor :task_name
+  attr_reader :assigned_to
 # Method: initialize
   # Arguments: start - the start date of the task
   #            finish - the completion date of the task
@@ -59,9 +64,12 @@ class ProjectTask
   end
 # Method: assign_to
   # Arguments: new_owner - the new owner to be assigned to the task
-  # Will change the owner to the value passed in
+  # Will change the owner to the value passed in as long as the value
+  # is not 'congress'. We all know congress wont get it done anyway. :)
   def assign_to(new_owner)
-    @assigned_to = new_owner
+    if new_owner != "congress"
+      @assigned_to = new_owner
+    end
   end
 # Method: print_task
   # Arguments: none
@@ -76,6 +84,7 @@ class ProjectTask
     print "  End Date:    #{@date_end.month}/"
     print "#{@date_end.day}/"
     puts "#{@date_end.year}"
+    self.get_duration
   end
 
 end

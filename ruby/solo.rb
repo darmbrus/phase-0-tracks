@@ -90,8 +90,40 @@ class ProjectTask
 end
 
 
-task = ProjectTask.new("7/7/2016", "7/20/2016", "3", "homework", "David")
-task.get_duration
-task.print_task
-task.assign_to("bob")
-task.print_task
+#task = ProjectTask.new("7/7/2016", "7/20/2016", "3", "homework", "David")
+#task.get_duration
+#task.print_task
+#task.assign_to("bob")
+#task.print_task
+
+selection = 0
+tasks = []
+
+begin
+  puts "1. Create a new project task"
+  puts "2. Show current tasks"
+  puts "3. Exit"
+  selection = gets.chomp.to_i
+  case selection
+  when 1
+    puts "Please enter the name of the task:"
+    name = gets.chomp
+    puts "Please enter the start date (MM/DD/YYY):"
+    start = gets.chomp
+    puts "Please enter the end date (MM/DD/YYYY):"
+    finish = gets.chomp
+    puts "Please enter the priority (1-10):"
+    pri = gets.chomp
+    puts "Please enter the task owner:"
+    owner = gets.chomp
+    tasks << ProjectTask.new(start, finish, pri, name, owner)
+  when 2
+    tasks.each { |task| task.print_task }
+  when 3
+    puts "Exiting..."
+  end
+
+end until selection == 3
+
+
+tasks.each { |task| task.print_task }

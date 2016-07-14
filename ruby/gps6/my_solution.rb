@@ -123,3 +123,18 @@ STATE_DATA.each { |state, values|
 
 #=======================================================================
 # Reflection Section
+# -- The differences between the two hash syntaxes are that the outer hash uses 
+# => to define the key and the value. This allows the use of a string as a key.
+# the inner hash uses the key: syntax which will automatically use a symbol as
+# the key.
+# -- The require reletive allows you to require a file for access in your ruby 
+# file with a file path that is reletive to the current file that you are writing
+# in. The require will not look reletively to the file by default and is mainly
+# used for requiring ruby libraries.
+# -- There are many ways to iterate through a hash, you can use each, map, and map!
+# depending on what you need to do with the data.
+# -- I believe the use of the variables for comparison stuck out the most to our
+# pair when we looked at the original solution. Hence we decided to replace it with
+# a case statement to more concisely show what was being compaired
+# -- I believe I was able to solidify my knowledge of variable scope in this 
+# assignment.

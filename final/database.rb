@@ -85,10 +85,12 @@ module DB_actions
   def self.print_tasks(db, projId)
     proj = db.execute("SELECT * FROM Projects WHERE projId=?;", [projId])
     tasks = db.execute("SELECT * FROM Tasks WHERE projId=?;", [projId])
-    puts "----------------------------------------------"
+    puts "---------------------------------------------------"
     puts proj[0]["projName"]
-
-    printf("%-20s | %-15s | %-5s\n", "Task Name", "Assignment", "Completed")
+    printf("%-20s | %-15s | %-5s\n",
+           "Task Name".center(20,"-"),
+           "Assignment".center(15,"-"),
+           "Completed")
     tasks.each { |task|
       eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
                        [task["engId"]])
@@ -97,5 +99,6 @@ module DB_actions
             eng[0]['engName'],
             task['taskComplete'])
     }
+    puts "---------------------------------------------------"
   end
 end

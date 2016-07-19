@@ -90,7 +90,10 @@ module DB_actions
     tasks.each { |task|
       eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
                        [task["engId"]])
-      puts "#{task['taskName']}\t#{eng[0]['engName']}\t#{task['taskComplete']}"
+      printf("%-20s | %-15s | %-5s\n",
+            task['taskName'],
+            eng[0]['engName'],
+            task['taskComplete'])
     }
   end
 end

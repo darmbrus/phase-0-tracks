@@ -87,6 +87,8 @@ module DB_actions
     tasks = db.execute("SELECT * FROM Tasks WHERE projId=?;", [projId])
     puts "----------------------------------------------"
     puts proj[0]["projName"]
+
+    printf("%-20s | %-15s | %-5s\n", "Task Name", "Assignment", "Completed")
     tasks.each { |task|
       eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
                        [task["engId"]])

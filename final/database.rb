@@ -82,9 +82,8 @@ module DB_actions
   #   db - the database to update
   #   projId - the project id
   def self.print_tasks(db, projId)
-    proj = {}
-    proj = db.execute("SELECT * FROM Projects WHERE projId=?;", [projId])
-    puts proj["projName"]
+    proj = db.execute("SELECT projId FROM Projects WHERE projId=?;", [projId])
+    puts proj
 
   end
 end

@@ -70,10 +70,11 @@ module DB_actions
   def self.add_task(db, name, projId, engId = 1)
     db.execute("INSERT INTO Tasks (
                taskName,
+               taskComplete,
                projId,
                engId
-              ) VALUES (?, ?, ?)", 
-               [name, projId,  engId])
+              ) VALUES (?, ?, ?, ?)", 
+               [name, "false", projId,  engId])
   end
   
   # Method to print out all tasks for a defined project id
@@ -82,8 +83,14 @@ module DB_actions
   #   db - the database to update
   #   projId - the project id
   def self.print_tasks(db, projId)
-    proj = db.execute("SELECT projId FROM Projects WHERE projId=?;", [projId])
-    puts proj
-
+    proj = db.execute("SELECT * FROM Projects WHERE projId=?;", [projId])
+    tasks = db.execute("SELECT * FROM Tasks WHERE projId=?;", [projId])
+    puts "----------------------------------------------"
+    puts proj[0]["projName"]
+    tasks.each { |task|
+      eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
+                       [task["engId"]])
+      puts "#{task['taskName']}\t#{eng[0]['engName']}\t#{task['taskComplete']}"
+    }
   end
 end

@@ -32,6 +32,12 @@ module DB_actions
       );
     SQL
     db.execute(sql)
+    if (db.execute("SELECT * FROM Engineers;") == [])
+      sql = <<-SQL
+       INSERT INTO Engineers (engName) VALUES ("UNASSIGNED");
+      SQL
+      db.execute(sql)
+    end
     return db
   end
 
@@ -58,7 +64,9 @@ module DB_actions
   # Input:
   #   db - the database to update
   #   name - the task name
-  def self.add_task(db, name, projId, engId)
+  #   projId - the project id to link the task to
+  #   engId - the engineer's id to link the task to (default = 1, or UNASSIGNED)
+  def self.add_task(db, name, projId, engId = 1)
     db.execute("INSERT INTO Tasks (
                taskName,
                projId,

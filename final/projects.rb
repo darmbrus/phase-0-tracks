@@ -9,3 +9,5 @@ DB_actions.add_engineer(db, "David")
 puts "creating task"
 DB_actions.add_task(db, "test task 1", 1, 2)
 DB_actions.add_task(db, "test task 2", 1)
+
+DB_actions.print_tasks(db, 1)

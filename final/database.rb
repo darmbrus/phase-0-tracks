@@ -38,6 +38,7 @@ module DB_actions
       SQL
       db.execute(sql)
     end
+    db.results_as_hash = true
     return db
   end
 
@@ -73,5 +74,17 @@ module DB_actions
                engId
               ) VALUES (?, ?, ?)", 
                [name, projId,  engId])
+  end
+  
+  # Method to print out all tasks for a defined project id
+  # engineer
+  # Input:
+  #   db - the database to update
+  #   projId - the project id
+  def self.print_tasks(db, projId)
+    proj = {}
+    proj = db.execute("SELECT * FROM Projects WHERE projId=?;", [projId])
+    puts proj["projName"]
+
   end
 end

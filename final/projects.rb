@@ -1,5 +1,6 @@
 require_relative 'database'
 require 'sqlite3'
 
-DB_actions.init_database
+db = DB_actions.init_database
 
+DB_actions.add_project(db, "test", 12.343)

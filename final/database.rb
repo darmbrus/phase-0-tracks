@@ -85,39 +85,51 @@ module DB_actions
   def self.print_tasks(db, projId)
     proj = db.execute("SELECT * FROM Projects WHERE projId=?;", [projId])
     tasks = db.execute("SELECT * FROM Tasks WHERE projId=?;", [projId])
-    puts "---------------------------------------------------"
-    puts proj[0]["projName"]
-    printf("%-20s | %-15s | %-5s\n",
-           "Task Name".center(20,"-"),
-           "Assignment".center(15,"-"),
-           "Completed")
-    tasks.each { |task|
-      eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
-                       [task["engId"]])
+    if tasks.length != 0
       printf("%-20s | %-15s | %-5s\n",
-            task['taskName'],
-            eng[0]['engName'],
-            task['taskComplete'])
-    }
-    puts "---------------------------------------------------"
+             "Task Name".center(20,"-"),
+             "Assignment".center(15,"-"),
+             "Completed")
+      tasks.each { |task|
+        eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
+                         [task["engId"]])
+        printf("%-20s | %-15s | %-5s\n",
+              task['taskName'],
+              eng[0]['engName'],
+              task['taskComplete'])
+      }
+    end
   end
 
   # Method to print out all projects in the database
   # 
   # Input:
   #   db - the database to update
+  #   project_id - If 0 all projects will print, otherwise only the project
+  #     for the specified ID will be printed
   #   print_tasks - If true the tasks will print with the project
   #     defaults to false
   #   print_complete - If true all projects including projects marked complete
   #     will print, default is false
-  def self.print_projects(db, print_tasks = false, print_complete = false)
-    if print_complete
-      proj = db.execute("SELECT * FROM Projects;")
+  def self.print_projects(db,
+                          project_id = 0,
+                          print_all_tasks = false,
+                          print_complete = false)
+    if project_id == 0
+      if print_complete
+        proj = db.execute("SELECT * FROM Projects;")
+      else
+        proj = db.execute("SELECT * FROM Projects WHERE projComplete='false';")
+      end
     else
-      proj = db.execute("SELECT * FROM Projects WHERE projComplete='false';")
+      proj = db.execute("SELECT * FROM Projects WHERE projId = ?;",
+                        [project_id])
     end
     proj.each { |project|
       printf("%-3d - %-20s\n", project["projId"], project["projName"])
+      if print_all_tasks
+        print_tasks(db, project["projId"])
+      end
     }
   end
 end

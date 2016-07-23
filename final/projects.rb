@@ -11,4 +11,7 @@ DB_actions.add_task(db, "test task 1", 1, 2)
 DB_actions.add_task(db, "test task 2", 1)
 
 DB_actions.print_tasks(db, 1)
-DB_actions.print_projects(db)
+puts "print all projects"
+DB_actions.print_projects(db, 0, true)
+puts "print project 1"
+DB_actions.print_projects(db, 1, true)

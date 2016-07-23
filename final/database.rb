@@ -24,6 +24,8 @@ module DB_actions
       CREATE TABLE IF NOT EXISTS Tasks (
         taskId INTEGER PRIMARY KEY,
         taskName VARCHAR(255),
+        taskStartDate VARCHAR(255),
+        taskEndDate VARCHAR(255),
         taskComplete BOOLEAN,
         projId INTEGER,
         engId INTEGER,
@@ -67,14 +69,16 @@ module DB_actions
   #   name - the task name
   #   projId - the project id to link the task to
   #   engId - the engineer's id to link the task to (default = 1, or UNASSIGNED)
-  def self.add_task(db, name, projId, engId = 1)
+  def self.add_task(db, name, startDate, endDate, projId, engId = 1)
     db.execute("INSERT INTO Tasks (
                taskName,
+               taskStartDate,
+               taskEndDate,
                taskComplete,
                projId,
                engId
-              ) VALUES (?, ?, ?, ?)", 
-               [name, "false", projId,  engId])
+              ) VALUES (?, ?, ?, ?, ?, ?)", 
+              [name, startDate, endDate, "false", projId,  engId])
   end
   
   # Method to print out all tasks for a defined project id
@@ -130,6 +134,17 @@ module DB_actions
       if print_all_tasks
         print_tasks(db, project["projId"])
       end
+    }
+  end
+
+  # Method to print out all engineers
+  # 
+  # Input:
+  #   db - the database to query
+  def self.print_engineers(db)
+    eng = db.execute("SELECT * FROM Engineers;")
+    eng.each { |engineer|
+      printf("%-3d - %-20s\n", engineer["engId"], engineer["engName"])
     }
   end
 end

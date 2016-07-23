@@ -101,4 +101,23 @@ module DB_actions
     }
     puts "---------------------------------------------------"
   end
+
+  # Method to print out all projects in the database
+  # 
+  # Input:
+  #   db - the database to update
+  #   print_tasks - If true the tasks will print with the project
+  #     defaults to false
+  #   print_complete - If true all projects including projects marked complete
+  #     will print, default is false
+  def self.print_projects(db, print_tasks = false, print_complete = false)
+    if print_complete
+      proj = db.execute("SELECT * FROM Projects;")
+    else
+      proj = db.execute("SELECT * FROM Projects WHERE projComplete='false';")
+    end
+    proj.each { |project|
+      printf("%-3d - %-20s\n", project["projId"], project["projName"])
+    }
+  end
 end

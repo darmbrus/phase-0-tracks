@@ -82,28 +82,34 @@ module DB_actions
               ) VALUES (?, ?, ?, ?, ?, ?)", 
               [name, startDate, endDate, "false", projId,  engId])
   end
-  
+
   # Method to print out all tasks for a defined project id
   # engineer
   # Input:
   #   db - the database to update
   #   projId - the project id
   def self.print_tasks(db, projId)
-    proj = db.execute("SELECT * FROM Projects WHERE projId=?;", [projId])
-    tasks = db.execute("SELECT * FROM Tasks WHERE projId=?;", [projId])
+    max_length = 20
+    tasks = db.execute("SELECT taskId, taskName, engName, taskComplete 
+      FROM Tasks
+      JOIN Engineers ON Tasks.engId = Engineers.engId
+      WHERE projId = ?;", [projId])
+    tasks.each { |task|
+      if task['taskName'].length > max_length
+        max_length = task['taskName'].length + 1
+      end
+    }
     if tasks.length != 0
-      printf("%-4s | %-20s | %-15s | %-5s\n",
+      printf("%-4s | %-#{max_length.to_s}s | %-15s | %-5s\n",
              "ID".center(4, "-"),
              "Task Name".center(20,"-"),
              "Assignment".center(15,"-"),
              "Completed")
       tasks.each { |task|
-        eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
-                         [task["engId"]])
-        printf("%-4s | %-20s | %-15s | %-5s\n",
+        printf("%-4s | %-#{max_length.to_s}s | %-15s | %-5s\n",
               task['taskId'],
               task['taskName'],
-              eng[0]['engName'],
+              task['engName'],
               task['taskComplete'])
       }
     end

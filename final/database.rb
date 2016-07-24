@@ -67,6 +67,8 @@ module DB_actions
   # Input:
   #   db - the database to update
   #   name - the task name
+  #   startDate - the start date for the task
+  #   endDate - the end date of the task
   #   projId - the project id to link the task to
   #   engId - the engineer's id to link the task to (default = 1, or UNASSIGNED)
   def self.add_task(db, name, startDate, endDate, projId, engId = 1)

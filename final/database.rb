@@ -92,14 +92,16 @@ module DB_actions
     proj = db.execute("SELECT * FROM Projects WHERE projId=?;", [projId])
     tasks = db.execute("SELECT * FROM Tasks WHERE projId=?;", [projId])
     if tasks.length != 0
-      printf("%-20s | %-15s | %-5s\n",
+      printf("%-4s | %-20s | %-15s | %-5s\n",
+             "ID".center(4, "-"),
              "Task Name".center(20,"-"),
              "Assignment".center(15,"-"),
              "Completed")
       tasks.each { |task|
         eng = db.execute("SELECT engName FROM Engineers WHERE engId=?;",
                          [task["engId"]])
-        printf("%-20s | %-15s | %-5s\n",
+        printf("%-4s | %-20s | %-15s | %-5s\n",
+              task['taskId'],
               task['taskName'],
               eng[0]['engName'],
               task['taskComplete'])
@@ -148,5 +150,15 @@ module DB_actions
     eng.each { |engineer|
       printf("%-3d - %-20s\n", engineer["engId"], engineer["engName"])
     }
+  end
+
+  # Method to reassign the engineer on a task
+  #
+  # Input:
+  #   db - the database to update
+  #   task_id - the id of the task to update
+  #   eng_id - the engineer's id to assign to the task
+  def self.assign_task_eng(db, task_id, eng_id)
+    db.execute("UPDATE Tasks SET engId = ? WHERE taskId = ?;", eng_id, task_id)
   end
 end

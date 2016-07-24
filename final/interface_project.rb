@@ -41,6 +41,7 @@ def print_task_submenu()
   puts "1  - Select a project"
   puts "2  - Print current project tasks"
   puts "3  - Add task"
+  puts "4  - Reassign task"
   print "Selection: "
 end
 
@@ -123,8 +124,16 @@ begin
         end_date = gets.chomp
         DB_actions.print_engineers(db)
         print "Engineer assignment: "
-        eng = gets.chomp
+        eng = gets.chomp.to_i
         DB_actions.add_task(db, name, start_date, end_date, cur_proj_id, eng)
+      when 4
+        DB_actions.print_tasks(db, cur_proj_id)
+        print "Please select a task id: "
+        task_id = gets.chomp.to_i
+        DB_actions.print_engineers(db)
+        print "Please select an engineer id: "
+        eng_id = gets.chomp.to_i
+        DB_actions.assign_task_eng(db, task_id, eng_id)
       end
     end until choice == 0
   end

@@ -42,6 +42,7 @@ def print_task_submenu()
   puts "2  - Print current project tasks"
   puts "3  - Add task"
   puts "4  - Reassign task"
+  puts "5  - Complete task"
   print "Selection: "
 end
 
@@ -51,6 +52,7 @@ choice = 0
 print_main_menu()
 choice = gets.chomp.to_i
 cur_proj_id = 0
+db = DB_actions.init_database()
  
 begin
   case choice
@@ -92,7 +94,7 @@ begin
       when 2
         DB_actions.print_projects(db)
       when 3
-        print "Please enter the new project name"
+        print "Please enter the new project name: "
         name = gets.chomp
         DB_actions.add_project(db, name)
       end
@@ -134,6 +136,11 @@ begin
         print "Please select an engineer id: "
         eng_id = gets.chomp.to_i
         DB_actions.assign_task_eng(db, task_id, eng_id)
+      when 5
+        DB_actions.print_tasks(db, cur_proj_id)
+        print "Please select a task to complete: "
+        task_id = gets.chomp.to_i
+        DB_actions.set_task_complete(db, task_id)
       end
     end until choice == 0
   end

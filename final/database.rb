@@ -161,4 +161,24 @@ module DB_actions
   def self.assign_task_eng(db, task_id, eng_id)
     db.execute("UPDATE Tasks SET engId = ? WHERE taskId = ?;", eng_id, task_id)
   end
+
+  # Method to mark a project complete
+  #
+  # Input:
+  #   db - the database to update
+  #   proj_id - id of the project to mark complete
+  def self.set_proj_complete(db, proj_id)
+    db.execute("UPDATE Projects SET projComplete = true WHERE projId = ?;",
+               proj_id)
+  end
+
+  # Method to mark a task complete
+  #
+  # Input:
+  #   db - the database to update
+  #   task_id - id of the project to mark complete
+  def self.set_task_complete(db, task_id)
+    db.execute("UPDATE Tasks SET taskComplete = 'true' WHERE taskId = ?;",
+               task_id)
+  end
 end

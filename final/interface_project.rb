@@ -119,7 +119,7 @@ begin
   when 4
     begin
       if cur_proj_id == 0
-        puts "Please select a project:"
+        puts "Please select a project: "
         DB_actions.print_projects(db, 0, false, true)
         cur_proj_id = gets.chomp
       end
@@ -131,7 +131,7 @@ begin
       # Select a project
       when 1
         DB_actions.print_projects(db, 0, false, true)
-        print "Please select a project ID"
+        print "Please select a project: "
         cur_proj_id = gets.chomp
       # Print current project tasks
       when 2

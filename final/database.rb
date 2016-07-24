@@ -168,7 +168,7 @@ module DB_actions
   #   db - the database to update
   #   proj_id - id of the project to mark complete
   def self.set_proj_complete(db, proj_id)
-    db.execute("UPDATE Projects SET projComplete = true WHERE projId = ?;",
+    db.execute("UPDATE Projects SET projComplete = 'true' WHERE projId = ?;",
                proj_id)
   end
 

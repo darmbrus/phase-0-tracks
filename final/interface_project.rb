@@ -32,6 +32,7 @@ def print_project_submenu()
   puts "1  - Print all projects"
   puts "2  - Print open projects"
   puts "3  - Add project"
+  puts "5  - Complete project"
   print "Selection: "
 end
 
@@ -106,6 +107,12 @@ begin
         print "Please enter the new project name: "
         name = gets.chomp
         DB_actions.add_project(db, name)
+      # Complete a project
+      when 4
+        DB_actions.print_projects(db)
+        print "Please enter the project Id to complete: "
+        proj_id = gets.chomp.to_i
+        DB_actions.set_proj_complete(db, proj_id)
       end
     end until choice == 0
   # Task submenu

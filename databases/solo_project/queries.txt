@@ -1,0 +1,32 @@
+select * from teachers;
+1|Cenric Maximilian|203
+2|Romanus Tulio|205
+3|Semyon Modesto|207
+4|Yorath Eli|210
+
+update teachers set room=211 where id = 4;
+select * from teachers;
+1|Cenric Maximilian|203
+2|Romanus Tulio|205
+3|Semyon Modesto|207
+4|Yorath Eli|211
+
+select * from students join teachers on students.teacherid = teachers.id;
+1|Elam Ambrose|4|true|1|1|Cenric Maximilian|203
+2|Inocencio Arda|4|true|1|1|Cenric Maximilian|203
+3|Ayberk Demon|5|true|2|2|Romanus Tulio|205
+4|Nero Liborius|5|false|2|2|Romanus Tulio|205
+5|Siegfried Mateusz|2|false|3|3|Semyon Modesto|207
+6|Afolabi Ulysses|1|false|4|4|Yorath Eli|211
+7|Vígi Ara|1|true|4|4|Yorath Eli|211
+8|Martin Erebos|1|true|4|4|Yorath Eli|211
+
+select students.name, teachers.name from students join teachers on students.teacherid = teachers.id;
+Elam Ambrose|Cenric Maximilian
+Inocencio Arda|Cenric Maximilian
+Ayberk Demon|Romanus Tulio
+Nero Liborius|Romanus Tulio
+Siegfried Mateusz|Semyon Modesto
+Afolabi Ulysses|Yorath Eli
+Vígi Ara|Yorath Eli
+Martin Erebos|Yorath Eli

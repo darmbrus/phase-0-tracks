@@ -1,6 +1,3 @@
-var title = document.getElementById("second-article");
-console.log(title);
-
 function underlineItem(event) {
   if (event.target.style.textDecoration == "underline") {
     event.target.style.textDecoration = "none";
@@ -9,3 +6,11 @@ function underlineItem(event) {
   }
 }
 addEventListener("click", underlineItem);
+function makeParagraph() {
+  var button = document.createElement("P");
+  var t = document.createTextNode("This is a paragraph");
+  button.appendChild(t);
+  document.body.appendChild(button);
+  console.log("paragraph created");
+}
+

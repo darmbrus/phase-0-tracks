@@ -1,5 +1,8 @@
-window.onload = function() {
+$(document).ready(function() {
+  $("p").click(function() {
 
-    alert( "welcome" );
+    $(this).hide();
 
-};
+  });
+
+});
